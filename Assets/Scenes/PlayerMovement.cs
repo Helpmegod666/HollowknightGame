@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpspeed = 12f;
     private Vector3 lastMoveDir;
 
-
+    public DashMovement dash;
     public GroundChecker groundcheck;
 
     private Rigidbody2D rbody;
@@ -23,22 +23,25 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Min spelare rör sig till vänster eller höger om man trycker på A,D 
-        rbody.velocity = new Vector2(
-            Input.GetAxisRaw    ("Horizontal") * walkspeed,
-            rbody.velocity.y);
-        // OM jag trycker på min jump knapp vilket är "Space" så hoppar jag 
-        if (Input.GetButtonDown("Jump"))
+        if (dash.isDashing == false)
         {
-
-            if (groundcheck.isgrounded > 0)
+            //Min spelare rör sig till vänster eller höger om man trycker på A,D 
+            rbody.velocity = new Vector2(
+                Input.GetAxisRaw("Horizontal") * walkspeed,
+                rbody.velocity.y);
+            // OM jag trycker på min jump knapp vilket är "Space" så hoppar jag 
+            if (Input.GetButtonDown("Jump"))
             {
-                // Denna kod gör så att min spelare hoppar när man trycker på hopp knappen 
-                rbody.velocity = new Vector2(
-                    rbody.velocity.x,
-                    jumpspeed);
-            }
 
+                if (groundcheck.isgrounded > 0)
+                {
+                    // Denna kod gör så att min spelare hoppar när man trycker på hopp knappen 
+                    rbody.velocity = new Vector2(
+                        rbody.velocity.x,
+                        jumpspeed);
+                }
+
+            }
         }
     }
 }
