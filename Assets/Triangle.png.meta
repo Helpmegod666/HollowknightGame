@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: ce684e496edb10b4a84d28d600f310d1
+=======
+guid: 1180eca6203dc8140bc6538d63a8e25f
+>>>>>>> Joel
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -81,7 +85,11 @@ TextureImporter:
       - {x: -1.7320508, y: -1.0000001}
       - {x: 1.7320509, y: -0.9999998}
     bones: []
+<<<<<<< HEAD
     spriteID: 73ed091e69cfe0348865979a8d4ea553
+=======
+    spriteID: 85fc18a85f16e9f4d90e10a05f433d75
+>>>>>>> Joel
     vertices: []
     indices: 
     edges: []
