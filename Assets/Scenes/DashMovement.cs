@@ -14,17 +14,21 @@ public class DashMovement : MonoBehaviour
     public GroundChecker Groundcheck;
 
     public bool isDashing = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDashing == false && dashes >= 1)
+        if (Groundcheck.isgrounded >= 1)
+        {
+            dashes = 1;
+        }
+
+        if (isDashing == false)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -34,15 +38,16 @@ public class DashMovement : MonoBehaviour
             {
                 direction = 2;
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dashes >= 1)
             {
                 isDashing = true;
                 dashes = 0;
             }
+
+            print(dashes);
         }
         else
         {
-            // Dashen är färdig.
             if (dashTime <= 0)
             {
                 direction = 0;
@@ -62,11 +67,6 @@ public class DashMovement : MonoBehaviour
                     rb.velocity = Vector2.right * dashSpeed;
                 }
             }
-        }
-
-        if (Groundcheck.isgrounded >= 1)
-        {
-            dashes = 1;
         }
     }
 }
