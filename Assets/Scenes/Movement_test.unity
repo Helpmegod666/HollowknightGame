@@ -4209,6 +4209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkspeed: 5
   jumpspeed: 24
+  dash: {fileID: 1703329484}
   groundcheck: {fileID: 1812748346}
 --- !u!114 &1703329484
 MonoBehaviour:
@@ -4217,13 +4218,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703329478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9049b19500c13af4b9b127587ce6ebc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dashSpeed: 50
   startDashTime: 0.1
+  dashes: 0
+  Groundcheck: {fileID: 1812748346}
+  isDashing: 0
 --- !u!1 &1812748345
 GameObject:
   m_ObjectHideFlags: 0
