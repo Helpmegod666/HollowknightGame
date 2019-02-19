@@ -4322,7 +4322,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 5
+  m_GravityScale: 6
   m_Material: {fileID: 6200000, guid: d4a169679030b47449a35aa2eff49341, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -4410,8 +4410,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703329478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.1, y: 7.19, z: 0}
-  m_LocalScale: {x: 1.0968751, y: 2.1634376, z: 1}
+  m_LocalPosition: {x: -9.52, y: 7, z: 0}
+  m_LocalScale: {x: 0.94813883, y: 1.9754349, z: 1}
   m_Children:
   - {fileID: 1388280182}
   - {fileID: 1812748348}
@@ -4426,14 +4426,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703329478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9b43d4b5c4d405468386fa4e11da716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   walkspeed: 5
+  jumpspeed: 12
   dash: {fileID: 1703329484}
   groundcheck: {fileID: 1812748346}
+  playerHealth: {fileID: 0}
+  knockback: 0
+  knockbackLength: 0
+  knockbackCount: 0
+  knockFromRight: 0
+  canKnockback: 1
+  feedback: {fileID: 0}
 --- !u!114 &1703329484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4448,6 +4456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 50
   startDashTime: 0.1
+  dashes: 0
+  Groundcheck: {fileID: 1812748346}
   isDashing: 0
 --- !u!114 &1703329485
 MonoBehaviour:
@@ -4461,14 +4471,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0bfb75b4163504ab6cdcaacc92b51b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  immunityframe: 0
   maxHP: 3
   Hpremaining: 3
-  hpremoved1: {fileID: 1202658764}
-  hpremoved2: {fileID: 1975164367}
   Scenetoload: 
   spawnpoint: {fileID: 0}
   playerPos: {fileID: 0}
-  potion: {fileID: 456733680}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1703329486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4481,7 +4490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38ba58405a0b44f40a8bcba1982222e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 13.5
   jumptime: 0.35
   speed: 7
   feetpos: {fileID: 2081265103}
@@ -4506,7 +4515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1812748346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,6 +4529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isgrounded: 0
+  feedback: {fileID: 0}
 --- !u!61 &1812748347
 BoxCollider2D:
   m_ObjectHideFlags: 0
