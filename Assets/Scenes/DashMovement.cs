@@ -9,9 +9,7 @@ public class DashMovement : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     private int direction;
-    public int dashes;
-
-    public GroundChecker Groundcheck;
+    
 
     public bool isDashing = false;
     // Start is called before the first frame update
@@ -24,7 +22,7 @@ public class DashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing == false && dashes >= 1)
+        if (isDashing == false)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -35,10 +33,7 @@ public class DashMovement : MonoBehaviour
                 direction = 2;
             }
             if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
                 isDashing = true;
-                dashes = 0;
-            }
         }
         else
         {
@@ -62,11 +57,7 @@ public class DashMovement : MonoBehaviour
                     rb.velocity = Vector2.right * dashSpeed;
                 }
             }
-        }
-
-        if (Groundcheck.isgrounded >= 1)
-        {
-            dashes = 1;
+            
         }
     }
 }

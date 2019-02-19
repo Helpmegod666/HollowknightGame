@@ -5,13 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float walkspeed = 5f;
-    public float jumpspeed = 12f;
+    public float jumpspeed = 10f;
     private Vector3 lastMoveDir;
+    public float jumpForce;
+    private float jumpTimeCounter;
+    public float jumptime;
+    private bool isJumping; 
 
     public DashMovement dash;
     public GroundChecker groundcheck;
 
     private Rigidbody2D rbody;
+    
 
     // Use this for initialization
     void Start()
@@ -41,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
                         jumpspeed);
                 }
 
-            }
+            
+            }   
         }
     }
 }
