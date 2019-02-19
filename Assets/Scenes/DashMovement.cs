@@ -5,25 +5,30 @@ using UnityEngine;
 public class DashMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public PlayerMovement playerMovement;
-    public float dashSpeed = 50;
+    public float dashSpeed;
     private float dashTime;
-    public float startDashTime = 0.1f;
+    public float startDashTime;
     private int direction;
-    
+    public int dashes;
+
+    public GroundChecker Groundcheck;
 
     public bool isDashing = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         dashTime = startDashTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isDashing == false && playerMovement.knockbackCount <= 0)
+        if (Groundcheck.isgrounded >= 1)
+        {
+            dashes = 1;
+        }
+
+        if (isDashing == false)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
@@ -33,12 +38,16 @@ public class DashMovement : MonoBehaviour
             {
                 direction = 2;
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            if (Input.GetKeyDown(KeyCode.LeftShift) && dashes >= 1)
+            {
                 isDashing = true;
+                dashes = 0;
+            }
+
+            print(dashes);
         }
         else
         {
-            // Dashen är färdig.
             if (dashTime <= 0)
             {
                 direction = 0;
@@ -58,7 +67,6 @@ public class DashMovement : MonoBehaviour
                     rb.velocity = Vector2.right * dashSpeed;
                 }
             }
-            
         }
     }
 }
