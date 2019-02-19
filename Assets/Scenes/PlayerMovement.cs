@@ -5,11 +5,18 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float walkspeed = 5f;
+    public float jumpspeed = 10f;
     private Vector3 lastMoveDir;
+    public float jumpForce;
+    private float jumpTimeCounter;
+    public float jumptime;
+    private bool isJumping; 
+
     public DashMovement dash;
     public GroundChecker groundcheck;
-    private Rigidbody2D rbody;
 
+    private Rigidbody2D rbody;
+    
 
     // Use this for initialization
     void Start()
@@ -27,10 +34,21 @@ public class PlayerMovement : MonoBehaviour
             rbody.velocity = new Vector2(
                 Input.GetAxisRaw("Horizontal") * walkspeed,
                 rbody.velocity.y);
-           
+            // OM jag trycker på min jump knapp vilket är "Space" så hoppar jag 
+            if (Input.GetButtonDown("Jump"))
+            {
 
+                if (groundcheck.isgrounded > 0)
+                {
+                    // Denna kod gör så att min spelare hoppar när man trycker på hopp knappen 
+                    rbody.velocity = new Vector2(
+                        rbody.velocity.x,
+                        jumpspeed);
+                }
+
+            
+            }   
         }
     }
 }
-
 
