@@ -9,6 +9,7 @@ public class DashMovement : MonoBehaviour
     private float dashTime;
     public float startDashTime;
     private int direction;
+    
 
     public bool isDashing = false;
     // Start is called before the first frame update
@@ -56,6 +57,7 @@ public class DashMovement : MonoBehaviour
                     rb.velocity = Vector2.right * dashSpeed;
                 }
             }
+            
         }
     }
 }

@@ -8,13 +8,16 @@ public class Hp_scipt : MonoBehaviour
     private bool immunityframe = false;
     public int maxHP = 5;
     public int Hpremaining = 5;
-    private int PotionsRemaining = 3;
+    private int PotionsRemaining = 1;
+
+    public GameObject hpremoved1;
+    public GameObject hpremoved2;
 
     public string Scenetoload;
 
     public Transform spawnpoint;
     public Transform playerPos;
-
+    public GameObject potion; 
 
     public void Start()
     {
@@ -49,7 +52,17 @@ public class Hp_scipt : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z) && PotionsRemaining > 0)
         {
             Hpremaining = maxHP;
-            PotionsRemaining = PotionsRemaining - 1;
+            PotionsRemaining = PotionsRemaining - 1; 
+        }
+
+        if (PotionsRemaining == 1)
+        {
+            potion.gameObject.SetActive(true);
+        }
+
+        if (PotionsRemaining == 0)
+        {
+            potion.gameObject.SetActive(false);
         }
 
         if (Hpremaining <= 0)
@@ -57,6 +70,25 @@ public class Hp_scipt : MonoBehaviour
             Hpremaining = maxHP;
             playerPos.position = spawnpoint.position;
         }
+
+        if (Hpremaining == 3)
+        {
+            hpremoved1.gameObject.SetActive(true);
+            hpremoved2.gameObject.SetActive(true);
+        }
+
+        if (Hpremaining == 2)
+        {
+            hpremoved1.gameObject.SetActive(false);
+            hpremoved2.gameObject.SetActive(true);
+        }
+
+        if (Hpremaining == 1)
+        {
+            hpremoved1.gameObject.SetActive(false);
+            hpremoved2.gameObject.SetActive(false);
+        }
+        
     }
 
     void Immunity()

@@ -4,12 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
+  - InvisibleWall
   - Ground
-=======
   - Enemy
-  - Attack
->>>>>>> Joel
   layers:
   - Default
   - TransparentFX
@@ -19,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Ground
   - 
   - 
   - 
