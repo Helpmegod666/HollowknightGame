@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - InvisibleWall
   - Ground
+  - InvisibleWall
+  - Attack
+  - Checkpoint
   - Enemy
   layers:
   - Default
@@ -16,12 +18,12 @@ TagManager:
   - UI
   - 
   - 
+  - Attack
+  - Player
+  - Enemy
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Layer12
+  - Layer13
   - 
   - 
   - 

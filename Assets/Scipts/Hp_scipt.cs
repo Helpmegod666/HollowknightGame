@@ -5,36 +5,28 @@ using UnityEngine.SceneManagement;
 
 public class Hp_scipt : MonoBehaviour
 {
-    private bool immunityframe = false;
+    public bool immunityframe = false;
     public int maxHP = 5;
     public int Hpremaining = 5;
-    private int PotionsRemaining = 1;
-
-    public GameObject hpremoved1;
-    public GameObject hpremoved2;
-
+    private int PotionsRemaining = 3;
     public string Scenetoload;
-
     public Transform spawnpoint;
     public Transform playerPos;
-    public GameObject potion; 
+    public Color color;
+    SpriteRenderer playerSprite;
+    PlayerMovement playerMovement;
+
+
 
     public void Start()
     {
         transform.position = spawnpoint.position;
+        playerSprite = GetComponent<SpriteRenderer>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" && immunityframe == false)
-        {
-            Hpremaining = Hpremaining - 1;
-            print(Hpremaining);
-
-            immunityframe = true;
-            Invoke("Immunity", 1f);
-        }
-
         if (collision.tag == "Checkpoint")
         {
             spawnpoint = collision.transform;
@@ -49,20 +41,10 @@ public class Hp_scipt : MonoBehaviour
             transform.position = spawnpoint.position;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && PotionsRemaining > 0)
+        if (Input.GetKeyDown(KeyCode.H) && PotionsRemaining > 0)
         {
             Hpremaining = maxHP;
-            PotionsRemaining = PotionsRemaining - 1; 
-        }
-
-        if (PotionsRemaining == 1)
-        {
-            potion.gameObject.SetActive(true);
-        }
-
-        if (PotionsRemaining == 0)
-        {
-            potion.gameObject.SetActive(false);
+            PotionsRemaining = PotionsRemaining - 1;
         }
 
         if (Hpremaining <= 0)
@@ -70,29 +52,30 @@ public class Hp_scipt : MonoBehaviour
             Hpremaining = maxHP;
             playerPos.position = spawnpoint.position;
         }
-
-        if (Hpremaining == 3)
-        {
-            hpremoved1.gameObject.SetActive(true);
-            hpremoved2.gameObject.SetActive(true);
-        }
-
-        if (Hpremaining == 2)
-        {
-            hpremoved1.gameObject.SetActive(false);
-            hpremoved2.gameObject.SetActive(true);
-        }
-
-        if (Hpremaining == 1)
-        {
-            hpremoved1.gameObject.SetActive(false);
-            hpremoved2.gameObject.SetActive(false);
-        }
         
+
     }
 
     void Immunity()
     {
         immunityframe = false;
+    }
+    void ChangeColor()
+    {
+        playerSprite.color = new Color(0,0.1f, 1);
+    }
+
+
+
+    public void Damage()
+    {
+        Hpremaining = Hpremaining - 1;
+        playerSprite.color = color;
+        immunityframe = true;
+
+        Invoke("Immunity", 1.5f);
+
+        Invoke("ChangeColor", 1.5f);
+        
     }
 }
