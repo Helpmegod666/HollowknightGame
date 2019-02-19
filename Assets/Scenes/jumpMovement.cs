@@ -21,11 +21,11 @@ public class jumpMovement : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
-    {
-        moveInput = Input.GetAxisRaw("Horizontal");
-        rbody.velocity = new Vector2(moveInput * speed, rbody.velocity.y);
-    }
+    //private void FixedUpdate()
+    //{
+    //    moveInput = Input.GetAxisRaw("Horizontal");
+    //    rbody.velocity = new Vector2(moveInput * speed, rbody.velocity.y);
+    //}
 
     // Update is called once per frame
     void Update()
