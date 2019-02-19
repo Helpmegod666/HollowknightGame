@@ -7,32 +7,39 @@ public class AttackScript : MonoBehaviour
     public static bool canAttack;
     public PlayerAttackScript player;
     public GameObject self;
+    public bool dead = false;
 
     void Start()
     {
-        //self = GetComponent<GameObject>();
+        self = GetComponent<GameObject>();
     }
-
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Attack")
+        if (dead == false)
         {
-            
-            canAttack = true;
-            player.enemyToAttack = self;
-            
+            if (collision.tag == "Attack")
+            {
+
+                canAttack = true;
+                player.enemyHp = GetComponent<EnemyHealth>();
+                
+
+            }
         }
+        
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Attack")
+        if (dead == false)
         {
-            canAttack = false;
-            player.enemyToAttack = null;
+            if (collision.tag == "Attack")
+            {
+                canAttack = false;
+               ;
+                
+            }
         }
-    }
-    void Update()
-    {
         
     }
 }

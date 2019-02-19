@@ -5,9 +5,10 @@ using UnityEngine;
 public class DashMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
-    public float dashSpeed;
+    public PlayerMovement playerMovement;
+    public float dashSpeed = 50;
     private float dashTime;
-    public float startDashTime;
+    public float startDashTime = 0.1f;
     private int direction;
 
     public bool isDashing = false;
@@ -21,7 +22,7 @@ public class DashMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDashing == false)
+        if (isDashing == false && playerMovement.knockbackCount <= 0)
         {
             if (Input.GetKeyDown(KeyCode.A))
             {

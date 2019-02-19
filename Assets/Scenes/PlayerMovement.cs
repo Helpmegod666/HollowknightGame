@@ -10,8 +10,15 @@ public class PlayerMovement : MonoBehaviour
 
     public DashMovement dash;
     public GroundChecker groundcheck;
+    public Hp_scipt playerHealth;
 
     private Rigidbody2D rbody;
+    public float knockback;
+    public float knockbackLength;
+    public float knockbackCount;
+    public bool knockFromRight;
+    public bool canKnockback = true;
+    public JumpFeedback feedback;
 
     // Use this for initialization
     void Start()
@@ -23,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (dash.isDashing == false)
+        if (dash.isDashing == false && knockbackCount <= 0)
         {
             //Min spelare rör sig till vänster eller höger om man trycker på A,D 
             rbody.velocity = new Vector2(
@@ -39,10 +46,25 @@ public class PlayerMovement : MonoBehaviour
                     rbody.velocity = new Vector2(
                         rbody.velocity.x,
                         jumpspeed);
+                    feedback.Shake(0.1f, 0.1f);
                 }
 
             }
         }
+        if (knockbackCount > 0) 
+        {
+            if(knockFromRight )
+            {
+                rbody.velocity = new Vector2(-knockback, knockback / 3);
+            }
+            if(!knockFromRight )
+            {
+                rbody.velocity = new Vector2(knockback, knockback / 3);
+            }
+            knockbackCount -= Time.deltaTime;
+        }
     }
+
+
 }
 

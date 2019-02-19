@@ -5,22 +5,25 @@ using UnityEngine;
 public class PlayerAttackScript : MonoBehaviour
 {
 
-    public GameObject enemyToAttack;
+
     public Transform attackHitbox;
+    public EnemyHealth enemyHp;
+    public SpriteRenderer enemySprite;
+ 
     // Update is called once per frame
     void Update()
     {
         if (AttackScript.canAttack == true && Input.GetKeyDown(KeyCode.Z))
         {
-            Destroy(enemyToAttack);
+            enemyHp.Health -= 1;
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            attackHitbox.localPosition = new Vector3(0, 1);
+            attackHitbox.localPosition = new Vector3(0, 0.7f);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            attackHitbox.localPosition = new Vector3(0, -1);
+            attackHitbox.localPosition = new Vector3(0, -0.9f);
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
@@ -31,5 +34,5 @@ public class PlayerAttackScript : MonoBehaviour
             attackHitbox.localPosition = new Vector3(-1, 0);
         }
     }
- 
+
 }

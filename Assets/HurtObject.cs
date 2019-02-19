@@ -7,6 +7,7 @@ public class HurtObject : MonoBehaviour
 {
     
     public string load = "Level 2";
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision) 
