@@ -13,6 +13,9 @@ public class Hp_scipt : MonoBehaviour
     public Transform spawnpoint;
     public Transform playerPos;
     public Color color;
+    public float dashImmunityDuration;
+    public Color immunityFrame;
+    Color startColor;
     SpriteRenderer playerSprite;
     PlayerMovement playerMovement;
 
@@ -23,6 +26,7 @@ public class Hp_scipt : MonoBehaviour
         transform.position = spawnpoint.position;
         playerSprite = GetComponent<SpriteRenderer>();
         playerMovement = GetComponent<PlayerMovement>();
+        startColor = playerSprite.color;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -52,18 +56,32 @@ public class Hp_scipt : MonoBehaviour
             Hpremaining = maxHP;
             playerPos.position = spawnpoint.position;
         }
-        
+        if (immunityframe == true)
+        {
+            playerSprite.color = immunityFrame;
+        }
+        if (immunityframe == false)
+        {
+            playerSprite.color = startColor;
+        }
 
     }
 
-    void Immunity()
+    public void Immunity()
     {
         immunityframe = false;
+    }
+    public void GetImmunity()
+    {
+        immunityframe = true;
+        Invoke("Immunity", dashImmunityDuration);
     }
     void ChangeColor()
     {
         playerSprite.color = new Color(0,0.1f, 1);
     }
+    
+        
 
 
 
@@ -75,7 +93,7 @@ public class Hp_scipt : MonoBehaviour
 
         Invoke("Immunity", 1.5f);
 
-        Invoke("ChangeColor", 1.5f);
+        Invoke("ChangeColor", 0.7f);
         
     }
 }

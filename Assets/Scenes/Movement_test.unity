@@ -4186,7 +4186,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703329478}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9b43d4b5c4d405468386fa4e11da716, type: 3}
   m_Name: 
@@ -4217,7 +4217,7 @@ MonoBehaviour:
   dashSpeed: 50
   startDashTime: 0.1
   dashes: 0
-  Groundcheck: {fileID: 0}
+  Groundcheck: {fileID: 1812748346}
   isDashing: 0
 --- !u!114 &1703329485
 MonoBehaviour:
