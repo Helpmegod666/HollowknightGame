@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class Hp_scipt : MonoBehaviour
 {
     public bool immunityframe = false;
-    public int maxHP = 5;
-    public int Hpremaining = 5;
+    public int maxHP = 3;
+    public static int Hpremaining = 3;
     private int PotionsRemaining = 3;
     public string Scenetoload;
     public Transform spawnpoint;
@@ -52,8 +52,8 @@ public class Hp_scipt : MonoBehaviour
             Hpremaining = maxHP;
             playerPos.position = spawnpoint.position;
         }
-        
 
+        print(Hpremaining);
     }
 
     void Immunity()

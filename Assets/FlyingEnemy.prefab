@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 5273839403617694162}
   - component: {fileID: 7951591202423770457}
   - component: {fileID: 5273839403617694166}
-  m_Layer: 0
+  - component: {fileID: 1657067995}
+  - component: {fileID: 1657068002}
+  m_Layer: 10
   m_Name: FlyingEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   self: {fileID: 0}
+  dead: 0
 --- !u!114 &5273839403617694166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,3 +161,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   isLeft: 1
+  dead: 0
+--- !u!114 &1657067995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273839403617694167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a57b824ae19249448fef3ad74da2031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
+  playerHealth: {fileID: 0}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
+  enemyDmg: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  attack: {fileID: 0}
+  dead: 0
+--- !u!114 &1657068002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273839403617694167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce06b7899347a0c4b8774644f224ed32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  feedback: {fileID: 0}
+  dead: 0
