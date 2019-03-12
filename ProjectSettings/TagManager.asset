@@ -4,12 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-<<<<<<< HEAD
   - Ground
-=======
-  - Enemy
-  - Attack
->>>>>>> Joel
+  - PlayerWepon
   layers:
   - Default
   - TransparentFX

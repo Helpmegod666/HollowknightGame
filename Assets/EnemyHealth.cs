@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "PlayerWepon")
         {
             Health -= 1;
         }
@@ -19,7 +19,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if (Health == 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 5);
         }
     }
 }
