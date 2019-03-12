@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 9193576633457549821}
   - component: {fileID: 5303762150175155022}
   - component: {fileID: 9193576633457549760}
-  m_Layer: 0
+  - component: {fileID: 1035140692}
+  m_Layer: 10
   m_Name: GroundEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   self: {fileID: 0}
+  dead: 0
 --- !u!50 &9193576633457549821
 Rigidbody2D:
   serializedVersion: 4
@@ -148,6 +150,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 3
+  playerHealth: {fileID: 0}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
+  enemyDmg: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  attack: {fileID: 0}
+  dead: 0
 --- !u!114 &9193576633457549760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,3 +170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 2
   isLeft: 1
+  dead: 0
+--- !u!114 &1035140692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce06b7899347a0c4b8774644f224ed32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  feedback: {fileID: 0}
+  dead: 0

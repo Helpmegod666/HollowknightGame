@@ -8,7 +8,6 @@ public class GroundChecker : MonoBehaviour
 
 
 
-
     public JumpFeedback feedback;
 
 
@@ -28,10 +27,5 @@ public class GroundChecker : MonoBehaviour
         {
             isgrounded = isgrounded - 1;
         }
-    }
-
-    private void Update()
-    {
-
     }
 }
