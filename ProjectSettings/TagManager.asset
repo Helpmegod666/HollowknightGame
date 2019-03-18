@@ -5,11 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - InvisibleWall
-  - Attack
-  - Checkpoint
-  - Enemy
-  - JumpWall
+  - PlayerWepon
   layers:
   - Default
   - TransparentFX
@@ -19,12 +15,12 @@ TagManager:
   - UI
   - 
   - 
-  - Attack
-  - Player
-  - Enemy
-  - Ground
-  - Layer12
-  - Layer13
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -46,13 +42,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Player
-    uniqueID: 3673492023
-    locked: 0
-  - name: Enemy
-    uniqueID: 2949620263
-    locked: 0
-  - name: Background
-    uniqueID: 1842982611
     locked: 0

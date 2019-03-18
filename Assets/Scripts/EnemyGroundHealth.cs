@@ -18,7 +18,7 @@ public class EnemyGroundHealth : MonoBehaviour
     {
         if (Health == 0)
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 5);
         }
     }
 }
