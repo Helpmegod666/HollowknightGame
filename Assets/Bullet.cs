@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
+    EnemyHealth enemy;
     public Rigidbody2D rb;
     public RangedAttacksScript player;
     public GameObject playerObj;
@@ -13,6 +14,7 @@ public class Bullet : MonoBehaviour
     {
         playerObj = GameObject.FindGameObjectWithTag("Attack");
         player = playerObj.GetComponent<RangedAttacksScript>();
+        rb = GetComponent<Rigidbody2D>();
      
         if(player.shootRight == true)
         {
@@ -34,8 +36,19 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
-        Destroy(gameObject);
+        if (collision.tag == "Groundenemy" || collision.tag == "Enemy")
+        {
+            enemy = collision.GetComponent<EnemyHealth>();
+            enemy.Health -= 1;
+            Destroy(gameObject);
+        }
+        if(collision.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
+        
+        
+        
     }
 
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemymovement : MonoBehaviour
 {
+    public bool canKnockback = true;
     public float moveSpeed = 2f;
     public bool isLeft = true;
     private Rigidbody2D rbody;
@@ -19,21 +20,25 @@ public class Enemymovement : MonoBehaviour
 
     void Update() 
     {
-        if(dead == false)
+        if(canKnockback == true)
         {
-            if (Input.GetKeyDown(KeyCode.H))
+            if (dead == false)
             {
-                Move(true);
+                if (Input.GetKeyDown(KeyCode.H))
+                {
+                    Move(true);
+                }
+            }
+            if (dead == true)
+            {
+                rbody.velocity = Vector2.zero;
+            }
+            if (dead == false && knockback == false)
+            {
+                rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
             }
         }
-        if(dead == true)
-        {
-            rbody.velocity = Vector2.zero;
-        }
-        if(dead == false && knockback == false)
-        {
-            rbody.velocity = new Vector2(moveSpeed, rbody.velocity.y);
-        }
+       
         
         
     }

@@ -24,8 +24,18 @@ public class AttackScript : MonoBehaviour
 
                 canAttack = true;
                 player.enemyHp = GetComponent<EnemyHealth>();
+                
+                
                 player.enemyRbody = GetComponent<Rigidbody2D>();
                 player.enemyMovement = GetComponent<Enemymovement>();
+                if (collision.tag == "Enemy")
+                {
+                    player.enemyMovement = null;
+                    player.enemyRbody = null;
+                }
+
+
+
                 player.enemySprite = GetComponent<SpriteRenderer>();
                 if (collision.transform.position.x < transform.position.x)
                 {

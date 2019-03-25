@@ -5,7 +5,7 @@ using UnityEngine;
 public class LandingParticle : MonoBehaviour
 {
     [SerializeField]
-    GameObject Dirt;
+   public GameObject Dirt;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -14,4 +14,8 @@ public class LandingParticle : MonoBehaviour
             Instantiate(Dirt, transform.position, Dirt.transform.rotation);
             }
         }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+    }
 }

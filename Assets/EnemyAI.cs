@@ -37,7 +37,7 @@ public class EnemyAI : MonoBehaviour
         }
         if (Health.Health == 0)
         {
-            transform.Translate(Vector3.down * Time.deltaTime, Space.World);
+            transform.Translate(Vector3.down * Time.deltaTime * fallspeed, Space.World);
         }
     }
 }
