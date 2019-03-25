@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
     public Enemymovement enemyMovement;
     public AttackScript attack;
     public bool dead;
+    public bool groundEnemy = true;
     private void Start()
     {
         rend = GetComponent<SpriteRenderer>();
@@ -23,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,6 +45,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
     }
+    
 
     private void Update()
     {
@@ -52,7 +54,11 @@ public class EnemyHealth : MonoBehaviour
             rend.color = deathColor;
             dead = true;
             enemyDmg.dead = true;
-            enemyMovement.dead = true;
+            if(groundEnemy == true)
+            {
+                enemyMovement.dead = true;
+            }
+           
             attack.dead = true;
             Invoke("Death", 2f);
         }

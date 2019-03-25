@@ -13,6 +13,7 @@ public class jumpMovement : MonoBehaviour
     private float moveInput;
     public bool isGrounded;
     public Transform feetpos;
+    public float gravity;
     public float checkRadius;
     public LayerMask whatIsGround;
     //public JumpFeedback feedback;
@@ -37,7 +38,9 @@ public class jumpMovement : MonoBehaviour
         {
             isJumping = true;
             jumpTimeCounter = jumptime; 
+            
             rbody.velocity = Vector2.up * jumpForce;
+            
             //feedback.Shake(0.1f, 0.1f);
         }
 
@@ -45,19 +48,29 @@ public class jumpMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && isJumping == true)
             if (jumpTimeCounter > 0)
             {
-                rbody.velocity = Vector2.up * jumpForce;
+                rbody.velocity = new Vector2(rbody.velocity.x, rbody.velocity.y + jumpForce);
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
             {
                 isJumping = false;
+              
             }
+        if (rbody.velocity.y < 0)
+        {
+            rbody.gravityScale = gravity;
+        }
+        if(rbody.velocity.y >= 0)
+        {
+            rbody.gravityScale = 2;
+        }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isJumping = false;
         }
     }
+ 
 }
 
 

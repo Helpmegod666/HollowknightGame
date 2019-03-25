@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Ground
   - PlayerWepon
+  - Attack
+  - InvisibleWall
+  - JumpWall
+  - Checkpoint
+  - Enemy
+  - Groundenemy
   layers:
   - Default
   - TransparentFX
@@ -15,12 +21,12 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Enemy
+  - Player
+  - Attackhitbox
+  - Particle
+  - EnemyArea
   - 
   - 
   - 

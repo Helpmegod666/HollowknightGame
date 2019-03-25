@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class RangedAttacksScript : MonoBehaviour
 {
+    public int ammo = 5;
     public Transform attackHitbox;
     public GameObject bulletPrefab;
+    public PlayerAttackScript normalAttack;
     public bool shootLeft = false;
     public bool shootRight = true;
     public bool shootUp = false;
@@ -16,6 +18,11 @@ public class RangedAttacksScript : MonoBehaviour
     }
     private void Update()
     {
+        if(ammo <= 0)
+        {
+            normalAttack.gameObject.SetActive(true);
+            gameObject.SetActive(false);
+        }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             attackHitbox.localPosition = new Vector3(0, 0.7f);
@@ -61,6 +68,7 @@ public class RangedAttacksScript : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletPrefab, attackHitbox.position, attackHitbox.rotation);
+        ammo -= 1;
     }
     
     

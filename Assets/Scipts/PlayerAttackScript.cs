@@ -37,7 +37,11 @@ public class PlayerAttackScript : MonoBehaviour
             enemyHp.Health -= 1;
             knockbackCount = knockbackLength;
             enemySprite.color = damagedColor;
-            enemyMovement.knockback = true;
+            if(enemyHp.groundEnemy == true)
+            {
+                enemyMovement.knockback = true;
+            }
+           
             invincibilityFrame = true;
             Invoke("resetInvincibilityFrame", 1f);
             if (knockbackCount > 0)
@@ -56,10 +60,11 @@ public class PlayerAttackScript : MonoBehaviour
                    
                 }
                 knockbackCount -= Time.deltaTime;
-                Invoke("resetRbody", damagedLength);
-                Invoke("resetColor", damagedLength);
-                Invoke("beginWalk", damagedLength);
             }
+            
+            Invoke("resetRbody", damagedLength);
+            Invoke("resetColor", damagedLength);
+            Invoke("beginWalk", damagedLength);
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -85,6 +90,7 @@ public class PlayerAttackScript : MonoBehaviour
     public void resetColor()
     {
         enemySprite.color = baseColor;
+         
     }
     public void beginWalk()
     {
