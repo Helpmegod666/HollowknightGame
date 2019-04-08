@@ -5,38 +5,40 @@ using UnityEngine;
 public class HeartDisabler : MonoBehaviour
 {
     public Hp_scipt hp;
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
+    public SpriteRenderer heart1;
+    public SpriteRenderer heart2;
+    public SpriteRenderer heart3;
+    public Sprite fullHeart;
+    public Sprite brokenHeart;
 
     void Update()
     {
         if (hp.Hpremaining == 3)
         {
-            heart1.gameObject.SetActive(true);
-            heart2.gameObject.SetActive(true);
-            heart3.gameObject.SetActive(true);
+            heart1.sprite = fullHeart;
+            heart2.sprite = fullHeart;
+            heart3.sprite = fullHeart;
         }
 
         if (hp.Hpremaining == 2)
         {
-            heart1.gameObject.SetActive(true);
-            heart2.gameObject.SetActive(true);
-            heart3.gameObject.SetActive(false);
+            heart1.sprite = fullHeart;
+            heart2.sprite = fullHeart;
+            heart3.sprite = brokenHeart;
         }
 
         if (hp.Hpremaining == 1)
         {
-            heart1.gameObject.SetActive(true);
-            heart2.gameObject.SetActive(false);
-            heart3.gameObject.SetActive(false);
+            heart1.sprite = fullHeart;
+            heart2.sprite = brokenHeart;
+            heart3.sprite = brokenHeart;
         }
 
         if (hp.Hpremaining == 0)
         {
-            heart1.gameObject.SetActive(false);
-            heart2.gameObject.SetActive(false);
-            heart3.gameObject.SetActive(false);
+            heart1.sprite = brokenHeart;
+            heart2.sprite = brokenHeart;
+            heart3.sprite = brokenHeart;
         }
     }
 }

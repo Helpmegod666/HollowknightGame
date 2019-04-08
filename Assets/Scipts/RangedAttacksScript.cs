@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class RangedAttacksScript : MonoBehaviour
 {
+    bool knockbackRight;
     public int ammo = 5;
     public Transform attackHitbox;
     public GameObject bulletPrefab;
     public PlayerAttackScript normalAttack;
+    PlayerMovement playerMovement;
+    GameObject playerObj;
+    public Quaternion rotationUp;
+    public Quaternion rotationDown;
     public bool shootLeft = false;
     public bool shootRight = true;
     public bool shootUp = false;
@@ -15,6 +20,8 @@ public class RangedAttacksScript : MonoBehaviour
     private void Start()
     {
         attackHitbox = GetComponent<Transform>();
+        playerObj = GameObject.FindGameObjectWithTag("Player");
+        playerMovement = playerObj.GetComponent<PlayerMovement>();
     }
     private void Update()
     {
@@ -26,6 +33,7 @@ public class RangedAttacksScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             attackHitbox.localPosition = new Vector3(0, 0.7f);
+            attackHitbox.localRotation = rotationUp;
             shootDown = false;
             shootLeft = false;
             shootRight = false;
@@ -35,7 +43,7 @@ public class RangedAttacksScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             attackHitbox.localPosition = new Vector3(0, -0.7f);
-            
+            attackHitbox.localRotation = rotationDown;
             shootLeft = false;
             shootRight = false;
             shootUp = false;
@@ -43,7 +51,9 @@ public class RangedAttacksScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            attackHitbox.localPosition = new Vector3(0.7f, 0);
+            attackHitbox.localPosition = new Vector3(1f, 0.1f);
+            attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
+            attackHitbox.localRotation = new Quaternion(0, 0, 0, 0);
             shootDown = false;
             shootLeft = false;
             
@@ -52,24 +62,38 @@ public class RangedAttacksScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            attackHitbox.localPosition = new Vector3(-0.7f, 0);
+            attackHitbox.localPosition = new Vector3(-1f, 0.1f);
+            attackHitbox.localScale = new Vector3(-0.5f, 0.4f, 1);
+            attackHitbox.localRotation = new Quaternion(0, 0, 0, 0);
             shootDown = false;
             
             shootRight = false;
             shootUp = false;
             shootLeft = true;
         }
+
         if(Input.GetKeyDown(KeyCode.Z))
         {
             Shoot();
         }
+        
 
     }
     void Shoot()
     {
+        if(shootRight == true)
+        {
+            playerMovement.knockFromRight = true;
+        }
+        else
+        {
+            playerMovement.knockFromRight = false;
+        }
+        
+        playerMovement.knockbackCount = playerMovement.knockbackLength / 2;
         Instantiate(bulletPrefab, attackHitbox.position, attackHitbox.rotation);
         ammo -= 1;
     }
-    
-    
+
+
 }

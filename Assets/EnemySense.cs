@@ -15,6 +15,13 @@ public class EnemySense : MonoBehaviour
             Area = true;
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if ( collision.tag == "Player")
+        {
+            Area = false;
+        }
+    }
 
     void Update()
     {
