@@ -22,13 +22,7 @@ public class Enemymovement : MonoBehaviour
     {
         if(canKnockback == true)
         {
-            if (dead == false)
-            {
-                if (Input.GetKeyDown(KeyCode.H))
-                {
-                    Move(true);
-                }
-            }
+
             if (dead == true)
             {
                 rbody.velocity = Vector2.zero;

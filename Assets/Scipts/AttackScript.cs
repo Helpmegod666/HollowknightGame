@@ -28,6 +28,7 @@ public class AttackScript : MonoBehaviour
                 
                 player.enemyRbody = GetComponent<Rigidbody2D>();
                 player.enemyMovement = GetComponent<Enemymovement>();
+                player.smartEnemy = GetComponent<SmartEnemyMovement>();
                 if (collision.tag == "Enemy")
                 {
                     player.enemyMovement = null;

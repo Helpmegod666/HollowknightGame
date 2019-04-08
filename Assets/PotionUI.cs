@@ -6,6 +6,8 @@ public class PotionUI : MonoBehaviour
 {
     public Hp_scipt hp;
     SpriteRenderer icon;
+    public Sprite fullPotion;
+    public Sprite usedPotion;
     private void Start()
     {
         icon = GetComponent<SpriteRenderer>();
@@ -15,11 +17,11 @@ public class PotionUI : MonoBehaviour
     {
         if (hp.PotionsRemaining >= 1)
         {
-            icon.enabled = true;
+            icon.sprite = fullPotion;
         }
         if (hp.PotionsRemaining <= 0)
         {
-            icon.enabled = false;
+            icon.sprite = usedPotion;
         }
     }
 }

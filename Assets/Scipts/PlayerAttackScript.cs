@@ -20,6 +20,7 @@ public class PlayerAttackScript : MonoBehaviour
     public EnemyHealth enemyHp;
     public SpriteRenderer enemySprite;
     public Enemymovement enemyMovement;
+    public SmartEnemyMovement smartEnemy;
     
     public bool invincibilityFrame = false;
     
@@ -40,6 +41,11 @@ public class PlayerAttackScript : MonoBehaviour
             if(enemyHp.groundEnemy == true)
             {
                 enemyMovement.knockback = true;
+                
+            }
+            if(enemyHp.groundEnemy == false && smartEnemy != null)
+            {
+                smartEnemy.knockback = true;
             }
            
             invincibilityFrame = true;
