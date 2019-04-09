@@ -61,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
             boxCollider.isTrigger = true;
             dead = true;
             enemyDmg.dead = true;
-            if(groundEnemy == true)
+            if(groundEnemy == true && enemyMovement != null)
             {
                 enemyMovement.dead = true;
                 

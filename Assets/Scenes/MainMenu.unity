@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start Game
+  m_Text: 
 --- !u!222 &142773154
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -240,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 178097165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a6b0db7cb79af4dab6d8836b75ba2c, type: 3}
+  m_Script: {fileID: 11500000, guid: b75c2903b5ce80f46b5b9ba898d8b955, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &178097168
@@ -316,8 +316,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 845bc4c428c0a604d9700acde74d6a80, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 321279242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcaba70f6406d034d8da891923e43920, type: 3}
+  m_Script: {fileID: 11500000, guid: f4dd61c0cd3d4924aab79862e127d687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Tutorial
@@ -459,8 +459,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 94ad2b9ad3634374094c2a52d9ba9daa, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -772,7 +772,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit Game
+  m_Text: '
+
+'
 --- !u!222 &895825620
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -933,7 +935,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: How to play
+  m_Text: '
+
+'
 --- !u!222 &1247901507
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1055,8 +1059,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5b788aa0d79faa849b86f500bf7bf315, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1081,7 +1085,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1536817782}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcaba70f6406d034d8da891923e43920, type: 3}
+  m_Script: {fileID: 11500000, guid: f4dd61c0cd3d4924aab79862e127d687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: HowToPlay

@@ -5,6 +5,8 @@ using UnityEngine;
 public class DashUI : MonoBehaviour
 {
     public DashMovement dash;
+    public Sprite fullDash;
+    public Sprite usedDash;
     SpriteRenderer icon;
     private void Start()
     {
@@ -15,11 +17,11 @@ public class DashUI : MonoBehaviour
     {
         if(dash.dashes >= 1)
         {
-            icon.enabled = true;
+            icon.sprite = fullDash;
         }
         if(dash.dashes <= 0)
         {
-            icon.enabled = false;
+            icon.sprite = usedDash;
         }
     }
 }
