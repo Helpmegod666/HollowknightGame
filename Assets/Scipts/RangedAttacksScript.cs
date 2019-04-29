@@ -33,6 +33,7 @@ public class RangedAttacksScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             attackHitbox.localPosition = new Vector3(0, 0.7f);
+            attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
             attackHitbox.localRotation = rotationUp;
             shootDown = false;
             shootLeft = false;
@@ -43,6 +44,7 @@ public class RangedAttacksScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             attackHitbox.localPosition = new Vector3(0, -0.7f);
+            attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
             attackHitbox.localRotation = rotationDown;
             shootLeft = false;
             shootRight = false;

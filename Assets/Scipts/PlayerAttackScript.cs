@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
+    public GameObject blood;
     public Rigidbody2D enemyRbody;
     public float knockback;
     public float knockbackLength;
@@ -35,6 +36,7 @@ public class PlayerAttackScript : MonoBehaviour
 
         if (AttackScript.canAttack == true && Input.GetKeyDown(KeyCode.Z) && invincibilityFrame == false)
         {
+            Instantiate(blood, transform.position, Quaternion.identity);
             enemyHp.Health -= 1;
             knockbackCount = knockbackLength;
             enemySprite.color = damagedColor;
@@ -100,6 +102,7 @@ public class PlayerAttackScript : MonoBehaviour
     }
     public void beginWalk()
     {
+        if(enemyMovement != null)
         enemyMovement.knockback = false;
     }
     public void resetInvincibilityFrame()

@@ -11,10 +11,7 @@ GameObject:
   - component: {fileID: 1227666453871213124}
   - component: {fileID: 3762539888351530926}
   - component: {fileID: 2836041110835810536}
-  - component: {fileID: 5669958286233077825}
   - component: {fileID: 4339136423205036136}
-  - component: {fileID: 7128275560965886535}
-  - component: {fileID: 99867383059703743}
   - component: {fileID: 1461048064804273628}
   m_Layer: 9
   m_Name: SmartGroundEnemy
@@ -101,21 +98,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5669958286233077825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834769870948744411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92945949376d1b47993c8b321617354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 0}
-  dead: 0
 --- !u!50 &4339136423205036136
 Rigidbody2D:
   serializedVersion: 4
@@ -137,44 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &7128275560965886535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834769870948744411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a57b824ae19249448fef3ad74da2031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 3
-  playerHealth: {fileID: 0}
-  deathColor: {r: 1, g: 0, b: 0, a: 1}
-  enemyDmg: {fileID: 0}
-  enemyMovement: {fileID: 0}
-  attack: {fileID: 0}
-  dead: 0
-  groundEnemy: 1
---- !u!114 &99867383059703743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6834769870948744411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04d9ccd10339334bbe1a72d85dd6534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canKnockback: 1
-  moveSpeed: 2
-  isLeft: 1
-  dead: 0
-  knockback: 0
-  jumpForce: 4
 --- !u!114 &1461048064804273628
 MonoBehaviour:
   m_ObjectHideFlags: 0

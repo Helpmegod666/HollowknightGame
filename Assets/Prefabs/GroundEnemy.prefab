@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 9193576633457549762}
   - component: {fileID: 9193576633457549763}
   - component: {fileID: 9193576633457549761}
-  - component: {fileID: 5731964556845371506}
   - component: {fileID: 9193576633457549821}
-  - component: {fileID: 5303762150175155022}
-  - component: {fileID: 9193576633457549760}
   - component: {fileID: 1035140692}
+  - component: {fileID: 791195832}
+  - component: {fileID: 791195833}
+  - component: {fileID: 791195834}
+  - component: {fileID: 669009404}
   m_Layer: 9
   m_Name: GroundEnemy
   m_TagString: Groundenemy
@@ -101,21 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5731964556845371506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193576633457549766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92945949376d1b47993c8b321617354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 0}
-  dead: 0
 --- !u!50 &9193576633457549821
 Rigidbody2D:
   serializedVersion: 4
@@ -137,47 +123,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5303762150175155022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193576633457549766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a57b824ae19249448fef3ad74da2031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 3
-  playerHealth: {fileID: 0}
-  deathColor: {r: 1, g: 0, b: 0, a: 1}
-  standardColor: {r: 1, g: 1, b: 1, a: 1}
-  enemyDmg: {fileID: 0}
-  enemyMovement: {fileID: 0}
-  smartEnemy: {fileID: 0}
-  attack: {fileID: 0}
-  boxCollider: {fileID: 0}
-  dead: 0
-  groundEnemy: 1
---- !u!114 &9193576633457549760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193576633457549766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04d9ccd10339334bbe1a72d85dd6534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canKnockback: 1
-  moveSpeed: 2
-  isLeft: 1
-  dead: 0
-  knockback: 0
-  jumpForce: 4
 --- !u!114 &1035140692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,3 +138,77 @@ MonoBehaviour:
   player: {fileID: 0}
   feedback: {fileID: 0}
   dead: 0
+--- !u!114 &791195832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d70427b789ec7c498f6c78299bcba42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  self: {fileID: 9193576633457549766}
+  dead: 0
+--- !u!114 &791195833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82e8ad5414151eb42835db52234253ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 3
+  playerHealth: {fileID: 0}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
+  standardColor: {r: 1, g: 1, b: 1, a: 1}
+  enemyDmg: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  smartEnemy: {fileID: 0}
+  attack: {fileID: 0}
+  boxCollider: {fileID: 0}
+  dead: 0
+  groundEnemy: 1
+--- !u!114 &791195834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5072eee13fb676d4db16eaa89901786d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canKnockback: 1
+  moveSpeed: 2
+  isLeft: 1
+  dead: 0
+  knockback: 0
+  jumpForce: 4
+--- !u!114 &669009404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5072eee13fb676d4db16eaa89901786d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canKnockback: 1
+  moveSpeed: 2
+  isLeft: 1
+  dead: 0
+  knockback: 0
+  jumpForce: 4

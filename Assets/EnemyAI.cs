@@ -8,8 +8,13 @@ public class EnemyAI : MonoBehaviour
     public Transform Player;
     public EnemySense Area;
     public EnemyHealth Health;
+    Rigidbody2D rbody;
     public float fallspeed = 10f;
 
+    private void Start()
+    {
+        rbody = GetComponent<Rigidbody2D>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -35,8 +40,9 @@ public class EnemyAI : MonoBehaviour
         {
 
         }
-        if (Health.Health == 0)
+        if (Health.Health <= 0)
         {
+            rbody.velocity = Vector2.zero;
             transform.Translate(Vector3.down * Time.deltaTime * fallspeed, Space.World);
         }
     }

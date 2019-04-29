@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class LeverScript : MonoBehaviour
 {
+    SpriteRenderer selfSprite;
     bool inside;
     public GameObject spawn1;
     public GameObject spawn2;
     public GameObject spawn3;
-    public GameObject spawn4;
+
+    private void Start()
+    {
+        selfSprite = GetComponent<SpriteRenderer>();
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             StartSpawn();
+            selfSprite.color = new Color(255, 255, 0);
         }
     }
     void StartSpawn()
@@ -21,7 +27,6 @@ public class LeverScript : MonoBehaviour
         Invoke("Spawn1", 1);
         Invoke("Spawn2", 3);
         Invoke("Spawn3", 5);
-        Invoke("Spawn4", 7);
 
     }
     void Spawn1()
@@ -35,9 +40,5 @@ public class LeverScript : MonoBehaviour
     void Spawn3()
     {
         spawn3.SetActive(true);
-    }
-    void Spawn4()
-    {
-        spawn4.SetActive(true);
     }
 }

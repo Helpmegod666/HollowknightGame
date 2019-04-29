@@ -131,10 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dfb968745b21344856fe1d265d3098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 3013116749799579334, guid: dae28759bf65457418fae377d00bab5e, type: 3}
   playerPosition: {fileID: 0}
   baseColor: {r: 0.9669811, g: 1, b: 0.9731369, a: 1}
   damagedColor: {r: 1, g: 0, b: 0, a: 0.6509804}
-  knockback: 10
+  knockback: 12
   knockbackLength: 0.4
   knockbackCount: 0
   damagedLength: 0.6

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-
+    //public GameObject blood;
     public int Health = 1;
     public Hp_scipt playerHealth;
     SpriteRenderer rend;
@@ -61,7 +61,7 @@ public class EnemyHealth : MonoBehaviour
             boxCollider.isTrigger = true;
             dead = true;
             enemyDmg.dead = true;
-            if(groundEnemy == true)
+            if(groundEnemy == true && enemyMovement != null)
             {
                 enemyMovement.dead = true;
                 
@@ -73,12 +73,14 @@ public class EnemyHealth : MonoBehaviour
             }
        
 
-            attack.dead = true;
+            //attack.dead = true;
+            
             Invoke("Death", 2f);
         }
     }
     public void Death()
     {
+        
         gameObject.SetActive(false);
     }
     public void RangedDamage()

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 171564288}
   - component: {fileID: 171564290}
   - component: {fileID: 171564289}
-  m_Layer: 9
+  m_Layer: 13
   m_Name: AggroRange
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Area: 0
-  Health: {fileID: 1657067995}
+  Health: {fileID: 1717384453}
+--- !u!1 &1601453329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601453330}
+  - component: {fileID: 1601453332}
+  - component: {fileID: 1601453331}
+  m_Layer: 9
+  m_Name: DamageArea
+  m_TagString: Groundenemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601453330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601453329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5273839403617694164}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1601453332
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601453329}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1601453331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601453329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d70427b789ec7c498f6c78299bcba42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  self: {fileID: 5273839403617694167}
+  dead: 0
 --- !u!1 &5273839403617694167
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,11 +147,9 @@ GameObject:
   - component: {fileID: 5273839403617694165}
   - component: {fileID: 5273839403617694163}
   - component: {fileID: 5273839403617694162}
-  - component: {fileID: 7951591202423770457}
-  - component: {fileID: 1657067995}
   - component: {fileID: 1657068002}
   - component: {fileID: 887114425}
-  - component: {fileID: 887114427}
+  - component: {fileID: 1717384453}
   m_Layer: 9
   m_Name: FlyingEnemy
   m_TagString: Enemy
@@ -98,6 +169,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 171564288}
+  - {fileID: 1601453330}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -196,41 +268,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &7951591202423770457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5273839403617694167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92945949376d1b47993c8b321617354, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 0}
-  dead: 0
---- !u!114 &1657067995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5273839403617694167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a57b824ae19249448fef3ad74da2031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 1
-  playerHealth: {fileID: 0}
-  deathColor: {r: 1, g: 0, b: 0, a: 1}
-  enemyDmg: {fileID: 0}
-  enemyMovement: {fileID: 0}
-  attack: {fileID: 0}
-  dead: 0
-  groundEnemy: 0
 --- !u!114 &1657068002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,9 +298,9 @@ MonoBehaviour:
   speed: 3
   Player: {fileID: 0}
   Area: {fileID: 171564289}
-  Health: {fileID: 1657067995}
-  fallspeed: 3
---- !u!114 &887114427
+  Health: {fileID: 1717384453}
+  fallspeed: 5
+--- !u!114 &1717384453
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -272,9 +309,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5273839403617694167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d92945949376d1b47993c8b321617354, type: 3}
+  m_Script: {fileID: 11500000, guid: 82e8ad5414151eb42835db52234253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 0}
+  Health: 1
+  playerHealth: {fileID: 0}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
+  standardColor: {r: 1, g: 1, b: 1, a: 1}
+  enemyDmg: {fileID: 0}
+  enemyMovement: {fileID: 0}
+  smartEnemy: {fileID: 0}
+  attack: {fileID: 0}
+  boxCollider: {fileID: 0}
   dead: 0
+  groundEnemy: 0

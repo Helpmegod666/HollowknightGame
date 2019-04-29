@@ -8,6 +8,7 @@ public class LoadSceneScript : MonoBehaviour
     public string sceneToLoad;
     public void LoadScene()
     {
+        PauseMenuScript.isPaused = false;
         SceneManager.LoadScene(sceneToLoad);
     }
     private void OnTriggerEnter2D(Collider2D collision)
