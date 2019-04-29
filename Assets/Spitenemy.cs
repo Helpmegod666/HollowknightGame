@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Spitenemy : MonoBehaviour
+{
+    public GameObject spit;
+    public Transform Player;
+    public Collider2D Range;
+    public DetectionSpit DetectionS;
+
+    public float shootinterval = 2;
+    public float ShotTimer = 0;
+
+    // will be used for Health later
+    private void Start()
+    {
+
+    }
+
+    private Vector3 v_diff;
+    private float atan2;
+
+    void Update()
+    {
+        if (DetectionS.detected == true)
+        {
+           v_diff = (Player.position - transform.position);
+           atan2 = Mathf.Atan2(v_diff.y, v_diff.x);
+           transform.rotation = Quaternion.Euler(0f, 0f, atan2 * Mathf.Rad2Deg);
+
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        ShotTimer += Time.deltaTime;
+
+        if (ShotTimer > shootinterval)
+        {
+            Instantiate(spit, transform.position, Quaternion.identity);
+
+            ShotTimer = 0;
+        }
+    }
+}
