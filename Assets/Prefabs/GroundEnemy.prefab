@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 791195832}
   - component: {fileID: 791195833}
   - component: {fileID: 791195834}
-  - component: {fileID: 669009402}
   - component: {fileID: 669009404}
   m_Layer: 9
   m_Name: GroundEnemy
@@ -195,21 +194,6 @@ MonoBehaviour:
   dead: 0
   knockback: 0
   jumpForce: 4
---- !u!114 &669009402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193576633457549766}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d70427b789ec7c498f6c78299bcba42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  self: {fileID: 9193576633457549766}
-  dead: 0
 --- !u!114 &669009404
 MonoBehaviour:
   m_ObjectHideFlags: 0

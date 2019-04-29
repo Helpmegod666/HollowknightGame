@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public GameObject blood;
     SpriteRenderer selfSprite;
     public Transform playerPosition;
     SmartEnemyMovement smartEnemy;
     public Color baseColor;
     public Color damagedColor;
-     SpriteRenderer enemySprite;
-   Enemymovement enemyMovement;
+    SpriteRenderer enemySprite;
+    Enemymovement enemyMovement;
     Vector2 previousMovement;
     Rigidbody2D enemyRbody;
     public float knockback;
@@ -36,7 +37,7 @@ public class Bullet : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         selfSprite = GetComponent<SpriteRenderer>();
-        if(player.shootRight == true)
+        if (player.shootRight == true)
         {
             rb.velocity = transform.right * speed;
         }
@@ -52,33 +53,36 @@ public class Bullet : MonoBehaviour
         {
             rb.velocity = transform.right * speed;
         }
-        
+
     }
     private void Update()
     {
 
-         
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+
         if (collision.tag == "Groundenemy" || collision.tag == "Enemy")
         {
-
-            enemy = collision.GetComponent<EnemyHealth>();
+            Instantiate(blood, transform.position, Quaternion.identity);
+            enemy = collision.GetComponentInParent<EnemyHealth>();
+            //enemy = collision.GetComponent<EnemyHealth>();
             enemySprite = collision.GetComponent<SpriteRenderer>();
+
             enemyRbody = collision.GetComponent<Rigidbody2D>();
-            if(collision.gameObject.tag == "Groundenemy")
+            if (collision.gameObject.tag == "Groundenemy")
             {
                 enemyMovement = collision.GetComponent<Enemymovement>();
 
             }
-            if(collision.gameObject.tag == "Enemy")
+            if (collision.gameObject.tag == "Enemy")
             {
                 smartEnemy = collision.GetComponent<SmartEnemyMovement>();
             }
             knockbackCount = knockbackLength;
-            enemySprite.color = damagedColor;
+            if (enemySprite != null)
+                enemySprite.color = damagedColor;
 
             if (collision.transform.position.x < playerPosition.position.x)
             {
@@ -86,21 +90,29 @@ public class Bullet : MonoBehaviour
             }
             else
             {
-               knockFromRight = false;
+                knockFromRight = false;
             }
             if (knockbackCount > 0)
             {
                 if (knockFromRight)
                 {
-                    previousMovement = new Vector2(enemyRbody.velocity.x, enemyRbody.velocity.y);
-                    enemyRbody.velocity = new Vector2(-knockback, knockback / 3);
+                    if (enemyRbody != null)
+                    {
+                        previousMovement = new Vector2(enemyRbody.velocity.x, enemyRbody.velocity.y);
+                        enemyRbody.velocity = new Vector2(-knockback, knockback / 3);
+                    }
+
 
 
                 }
                 if (!knockFromRight)
                 {
-                    previousMovement = new Vector2(enemyRbody.velocity.x, enemyRbody.velocity.y);
-                    enemyRbody.velocity = new Vector2(knockback, knockback / 3);
+                    if (enemyRbody != null)
+                    {
+                        previousMovement = new Vector2(enemyRbody.velocity.x, enemyRbody.velocity.y);
+                        enemyRbody.velocity = new Vector2(knockback, knockback / 3);
+
+                    }
 
                 }
                 knockbackCount -= Time.deltaTime;
@@ -111,23 +123,23 @@ public class Bullet : MonoBehaviour
             {
                 enemy.Health -= 1;
             }
-            
-                Destroy(gameObject);
-            
-          
-           
-            
-           
+
+            Destroy(gameObject);
+
+
+
+
+
         }
-        if(collision.tag == "Ground")
+        if (collision.tag == "Ground")
         {
             Destroy(gameObject);
         }
-        
 
-        
-        
-        
+
+
+
+
     }
     void resetRbody()
     {

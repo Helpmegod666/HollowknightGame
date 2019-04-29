@@ -12,7 +12,11 @@ public class AttackScript : MonoBehaviour
 
     void Start()
     {
-        self = GetComponent<GameObject>();
+        if(self == null)
+        {
+            self = GetComponent<GameObject>();
+        }
+        
     }
     
     void OnTriggerEnter2D(Collider2D collision)
@@ -23,12 +27,12 @@ public class AttackScript : MonoBehaviour
             {
 
                 canAttack = true;
-                player.enemyHp = GetComponent<EnemyHealth>();
+                player.enemyHp = self.GetComponent<EnemyHealth>();
                 
                 
-                player.enemyRbody = GetComponent<Rigidbody2D>();
-                player.enemyMovement = GetComponent<Enemymovement>();
-                player.smartEnemy = GetComponent<SmartEnemyMovement>();
+                player.enemyRbody = self.GetComponent<Rigidbody2D>();
+                player.enemyMovement = self.GetComponent<Enemymovement>();
+                player.smartEnemy = self.GetComponent<SmartEnemyMovement>();
                 if (collision.tag == "Enemy")
                 {
                     player.enemyMovement = null;
@@ -37,7 +41,7 @@ public class AttackScript : MonoBehaviour
 
 
 
-                player.enemySprite = GetComponent<SpriteRenderer>();
+                player.enemySprite = self.GetComponent<SpriteRenderer>();
                 if (collision.transform.position.x < transform.position.x)
                 {
                     player.knockFromRight = false;
