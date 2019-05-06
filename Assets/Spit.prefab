@@ -94,8 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce472ad6fa04fb459c4b1019f11c3da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: {fileID: 7083243227861028373, guid: 34adb5b39eb802646b959d3976b5e501, type: 3}
+  spit: {fileID: 881467194591578203, guid: b028247e455c8744dbf7d064042bf34a, type: 3}
   spitspeed: 5
+  ricochetspitspeed: 3
 --- !u!58 &3103409617397020388
 CircleCollider2D:
   m_ObjectHideFlags: 0
