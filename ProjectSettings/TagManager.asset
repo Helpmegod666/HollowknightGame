@@ -12,7 +12,7 @@ TagManager:
   - Checkpoint
   - Enemy
   - Groundenemy
-  - RangedAttack
+  - Explosion
   layers:
   - Default
   - TransparentFX
@@ -29,10 +29,10 @@ TagManager:
   - Particle
   - EnemyArea
   - 
-  - NearDEsertBackground
-  - FarDesertBackground
-  - MountainBackground
-  - SkyBackground
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
