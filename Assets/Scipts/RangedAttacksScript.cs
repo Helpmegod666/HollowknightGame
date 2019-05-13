@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangedAttacksScript : MonoBehaviour
 {
+    public AudioSource effect;
     bool knockbackRight;
     public int ammo = 5;
     public Transform attackHitbox;
@@ -83,6 +84,7 @@ public class RangedAttacksScript : MonoBehaviour
     }
     void Shoot()
     {
+        effect.Play();
         if(shootRight == true)
         {
             playerMovement.knockFromRight = true;

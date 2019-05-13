@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class RangedPickup : MonoBehaviour
 {
+    public AudioSource effect;
+    public GameObject player;
     SpriteRenderer selfSprite;
-    public RangedAttacksScript weapon;
+    public GiveAmmo ammo;
     public int ammoToGet = 5;
-    private void Start()
+
+    private void Update()
     {
         selfSprite = GetComponent<SpriteRenderer>();
-        
+        player = GameObject.FindGameObjectWithTag("Player");
+        ammo = player.GetComponent<GiveAmmo>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+     
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
         {
+            effect.Play();
             selfSprite.enabled = false;
-            weapon.ammo += ammoToGet;
+            ammo.Giveammo();
+            Destroy(gameObject);
         }
     }
 }

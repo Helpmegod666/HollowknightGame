@@ -6,13 +6,15 @@ public class Drop_test_enemy : MonoBehaviour
 {
     private int randdrop;
     public GameObject potiondrop;
-
+    public GameObject ammoDrop;
     private EnemyHealth EGH;
     private float randtimer = 0;
     private int randcharge = 1;
     
     private int potiondrops = 1;
     private float potiontimer = 0;
+    private float ammoTimer = 0;
+    private int ammoDrops = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,12 @@ public class Drop_test_enemy : MonoBehaviour
             {
                 potiondropping();
             }
+            if(randdrop > 5)
+            {
+                AmmoDropping();
+            }
 
-            Debug.Log(randdrop);
+
        }
 
         randchargesreset();
@@ -75,5 +81,20 @@ public class Drop_test_enemy : MonoBehaviour
             potiondrops = 1;
         }
             
+    }
+    private void AmmoDropping()
+    {
+        if(ammoTimer == 0 && ammoDrops == 1)
+        {
+            Instantiate(ammoDrop, transform.position, Quaternion.identity);
+            ammoTimer += Time.deltaTime;
+            ammoDrops = 0;
+        }
+        if(potiontimer >= 2)
+        {
+            potiontimer = 0;
+            ammoDrops = 1;
+        }
+      
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public AudioSource death;
+    public AudioSource effect;
     public GameObject blood;
     SpriteRenderer selfSprite;
     public Transform playerPosition;
@@ -31,7 +33,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         Invoke("Destroy", 5);
-        playerObj = GameObject.FindGameObjectWithTag("Attack");
+        playerObj = GameObject.FindGameObjectWithTag("RangedAttack");
         playerPosition = playerObj.GetComponent<Transform>();
         player = playerObj.GetComponent<RangedAttacksScript>();
 
@@ -65,6 +67,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "Groundenemy" || collision.tag == "Enemy")
         {
+            effect.Play();
             Instantiate(blood, transform.position, Quaternion.identity);
             enemy = collision.GetComponentInParent<EnemyHealth>();
             //enemy = collision.GetComponent<EnemyHealth>();
@@ -83,6 +86,7 @@ public class Bullet : MonoBehaviour
             knockbackCount = knockbackLength;
             if (enemySprite != null)
                 enemySprite.color = damagedColor;
+            Invoke("resetColor", damagedLength);
 
             if (collision.transform.position.x < playerPosition.position.x)
             {
@@ -122,6 +126,10 @@ public class Bullet : MonoBehaviour
             if (enemy != null)
             {
                 enemy.Health -= 1;
+            }
+            if(enemy.Health == 0)
+            {
+                death.Play();
             }
 
             Destroy(gameObject);

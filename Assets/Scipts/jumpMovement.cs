@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class jumpMovement : MonoBehaviour
 {
+    public AudioSource soundEffect;
     public float jumpForce;
     private float jumpTimeCounter;
     public float jumptime;
@@ -40,7 +41,7 @@ public class jumpMovement : MonoBehaviour
             jumpTimeCounter = jumptime; 
             
             rbody.velocity = Vector2.up * jumpForce;
-            
+            soundEffect.Play();
             //feedback.Shake(0.1f, 0.1f);
         }
 

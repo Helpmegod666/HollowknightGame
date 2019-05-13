@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    
     //public GameObject blood;
     public int Health = 1;
     public Hp_scipt playerHealth;
@@ -55,8 +56,12 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
-        if (Health <= 0)
+       
+           
+
+            if (Health <= 0)
         {
+            
             rend.color = deathColor;
             boxCollider.isTrigger = true;
             dead = true;
@@ -71,7 +76,7 @@ public class EnemyHealth : MonoBehaviour
 
                 smartEnemy.dead = true;
             }
-       
+           
 
             //attack.dead = true;
             
