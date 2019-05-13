@@ -12,6 +12,7 @@ TagManager:
   - Checkpoint
   - Enemy
   - Groundenemy
+  - Explosion
   layers:
   - Default
   - TransparentFX
