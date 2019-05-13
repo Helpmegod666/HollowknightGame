@@ -67,7 +67,7 @@ public class Bullet : MonoBehaviour
 
         if (collision.tag == "Groundenemy" || collision.tag == "Enemy")
         {
-            effect.Play();
+            //effect.Play();
             Instantiate(blood, transform.position, Quaternion.identity);
             enemy = collision.GetComponentInParent<EnemyHealth>();
             //enemy = collision.GetComponent<EnemyHealth>();

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class DropPostion : MonoBehaviour
 {
+    PolygonCollider2D polygon;
     public AudioSource effect;
     GameObject player;
     Hp_scipt Hp;
 
     private void Start()
     {
+        polygon = GetComponent<PolygonCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player");
         Hp = player.GetComponent<Hp_scipt>();
     }
@@ -30,7 +32,8 @@ public class DropPostion : MonoBehaviour
         {
             effect.Play();
             Hp.PotionsRemaining = 1;
-            Destroy(gameObject);
+            polygon.isTrigger = true;
+            Destroy(gameObject, 0.2f);
         }
     }
 }

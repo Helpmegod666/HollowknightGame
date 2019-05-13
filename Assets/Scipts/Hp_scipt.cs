@@ -7,6 +7,7 @@ public class Hp_scipt : MonoBehaviour
 {
     public AudioSource deathSound;
     public AudioSource damageSound;
+    public AudioSource potionSound;
     public bool immunityframe = false;
     public int maxHP = 5;
     public int Hpremaining = 5;
@@ -51,6 +52,7 @@ public class Hp_scipt : MonoBehaviour
         {
             Hpremaining = maxHP;
             PotionsRemaining = PotionsRemaining - 1;
+            potionSound.Play();
         }
 
         if (Hpremaining <= 0)

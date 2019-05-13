@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  self: {fileID: 0}
+  self: {fileID: 8881751240940699875}
   dead: 0
 --- !u!60 &415894304
 PolygonCollider2D:
@@ -262,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e8ad5414151eb42835db52234253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: {fileID: 2163162762451727233}
   Health: 3
   playerHealth: {fileID: 0}
   deathColor: {r: 1, g: 0, b: 0, a: 1}

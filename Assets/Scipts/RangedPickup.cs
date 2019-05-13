@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RangedPickup : MonoBehaviour
 {
+    BoxCollider2D box;
     public AudioSource effect;
     public GameObject player;
     SpriteRenderer selfSprite;
@@ -15,6 +16,7 @@ public class RangedPickup : MonoBehaviour
         selfSprite = GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
         ammo = player.GetComponent<GiveAmmo>();
+        box = GetComponent<BoxCollider2D>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -27,7 +29,8 @@ public class RangedPickup : MonoBehaviour
             effect.Play();
             selfSprite.enabled = false;
             ammo.Giveammo();
-            Destroy(gameObject);
+            box.isTrigger = true;
+            Destroy(gameObject, 0.2f);
         }
     }
 }
