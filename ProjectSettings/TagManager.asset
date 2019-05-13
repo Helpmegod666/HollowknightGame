@@ -12,6 +12,7 @@ TagManager:
   - Checkpoint
   - Enemy
   - Groundenemy
+  - RangedAttack
   layers:
   - Default
   - TransparentFX
