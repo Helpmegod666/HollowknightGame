@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 791195832}
   - component: {fileID: 791195833}
   - component: {fileID: 791195834}
-  - component: {fileID: 669009404}
+  - component: {fileID: 4733259560324176518}
+  - component: {fileID: 7967787878082966168}
   m_Layer: 9
   m_Name: GroundEnemy
   m_TagString: Groundenemy
@@ -165,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82e8ad5414151eb42835db52234253ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 7967787878082966168}
   Health: 3
   playerHealth: {fileID: 0}
   deathColor: {r: 1, g: 0, b: 0, a: 1}
@@ -194,7 +196,7 @@ MonoBehaviour:
   dead: 0
   knockback: 0
   jumpForce: 4
---- !u!114 &669009404
+--- !u!114 &4733259560324176518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -203,12 +205,106 @@ MonoBehaviour:
   m_GameObject: {fileID: 9193576633457549766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5072eee13fb676d4db16eaa89901786d, type: 3}
+  m_Script: {fileID: 11500000, guid: 73d0e7baf29d0a4418b44f98a8a26ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canKnockback: 1
-  moveSpeed: 2
-  isLeft: 1
-  dead: 0
-  knockback: 0
-  jumpForce: 4
+  potiondrop: {fileID: 8137964776645560500, guid: 4048e95e2a4cfb645be0836c0f2bebfe,
+    type: 3}
+  ammoDrop: {fileID: 3820765533519455470, guid: 767e84931fd38a94ab0b6000e9130b2e,
+    type: 3}
+--- !u!82 &7967787878082966168
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193576633457549766}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d6766c388e897a341a77ef5f937a0f67, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

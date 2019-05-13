@@ -8,14 +8,14 @@ public class Spitenemy : MonoBehaviour
     public Transform Player;
     public Collider2D Range;
     public DetectionSpit DetectionS;
-
+    EnemyHealth health;
     public float shootinterval = 2;
     public float ShotTimer = 0;
 
     // will be used for Health later
     private void Start()
     {
-
+        health = GetComponent<EnemyHealth>();
     }
 
     private Vector3 v_diff;
@@ -23,7 +23,7 @@ public class Spitenemy : MonoBehaviour
 
     void Update()
     {
-        if (DetectionS.detected == true)
+        if (DetectionS.detected == true && health.dead  == false)
         {
            v_diff = (Player.position - transform.position);
            atan2 = Mathf.Atan2(v_diff.y, v_diff.x);

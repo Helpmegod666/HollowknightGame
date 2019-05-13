@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DropPostion : MonoBehaviour
 {
+    public AudioSource effect;
     GameObject player;
     Hp_scipt Hp;
 
@@ -27,6 +28,7 @@ public class DropPostion : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            effect.Play();
             Hp.PotionsRemaining = 1;
             Destroy(gameObject);
         }

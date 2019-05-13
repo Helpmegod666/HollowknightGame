@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
+    public AudioSource effect;
+    public AudioSource enemyDeath;
     public GameObject blood;
     public Rigidbody2D enemyRbody;
     public float knockback;
@@ -33,11 +35,16 @@ public class PlayerAttackScript : MonoBehaviour
     }
     void Update()
     {
-
+        
         if (AttackScript.canAttack == true && Input.GetKeyDown(KeyCode.Z) && invincibilityFrame == false)
         {
+            effect.Play();
             Instantiate(blood, transform.position, Quaternion.identity);
             enemyHp.Health -= 1;
+            if(enemyHp.Health == 0)
+            {
+                enemyDeath.Play();
+            }
             knockbackCount = knockbackLength;
             enemySprite.color = damagedColor;
             if(enemyHp.groundEnemy == true)

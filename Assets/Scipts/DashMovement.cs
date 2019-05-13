@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DashMovement : MonoBehaviour
 {
+    public AudioSource effect;
+    [SerializeField]private Transform dashEffect;
     private Rigidbody2D rb;
     private Hp_scipt hp;
     public float dashSpeed;
@@ -49,6 +51,7 @@ public class DashMovement : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.LeftShift) && dashes >= 1)
             {
+                effect.Play();
                 isDashing = true;
                 dashes = 0;
                 
@@ -66,18 +69,27 @@ public class DashMovement : MonoBehaviour
             }
             else
             {
+                
                 dashTime -= Time.deltaTime;
                 if (direction == 1)
                 {
+                    Vector3 beforeDashPosition = new Vector3(transform.position.x + 1, transform.position.y, transform.position.z);
                     rb.velocity = Vector2.left * dashSpeed;
                     hp.GetImmunity();
-
+                    Instantiate(dashEffect, beforeDashPosition, Quaternion.identity);
+                    float dashEffectWidth = 35f;
+                    dashEffect.localScale = new Vector3(dashSpeed / dashEffectWidth, 1f, 1f);
+                    
+                    
                 }
                 else if (direction == 2)
                 {
+                    Vector3 beforeDashPosition = new Vector3(transform.position.x - 1, transform.position.y, transform.position.z);
                     rb.velocity = Vector2.right * dashSpeed;
                     hp.GetImmunity();
-
+                    Instantiate(dashEffect, beforeDashPosition, Quaternion.identity);
+                    float dashEffectWidth = 35f;
+                    dashEffect.localScale = new Vector3(dashSpeed / dashEffectWidth, 1f, 1f);
                 }
             }
         }

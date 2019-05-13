@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Hp_scipt : MonoBehaviour
 {
+    public AudioSource deathSound;
+    public AudioSource damageSound;
     public bool immunityframe = false;
     public int maxHP = 5;
     public int Hpremaining = 5;
@@ -53,6 +55,7 @@ public class Hp_scipt : MonoBehaviour
 
         if (Hpremaining <= 0)
         {
+            deathSound.Play();
             Hpremaining = maxHP;
             playerPos.position = spawnpoint.position;
         }
@@ -87,6 +90,7 @@ public class Hp_scipt : MonoBehaviour
 
     public void Damage()
     {
+        damageSound.Play();
         Hpremaining = Hpremaining - 1;
         playerSprite.color = color;
         immunityframe = true;
