@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1290501119}
   - component: {fileID: 1290501118}
   - component: {fileID: 1290501117}
-  - component: {fileID: 2163162762451727233}
+  - component: {fileID: 7970302796170410853}
   m_Layer: 9
   m_Name: Spitenemy
   m_TagString: Enemy
@@ -154,7 +154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 1a6f261b7ed747848ab4c4be404658e4, type: 3}
   m_Color: {r: 0.10572783, g: 0.4433962, b: 0.06901923, a: 1}
   m_FlipX: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9213142d1305a42ba0b10c63b194a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spitEffect: {fileID: 7970302796170410853}
   spit: {fileID: 8080086373747379410, guid: c1e85256f00ed2b42841169fad532288, type: 3}
   Player: {fileID: 0}
   Range: {fileID: 8881751241248820052}
@@ -301,7 +302,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d67ddc171da2474ba647dca885d7fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &2163162762451727233
+--- !u!82 &7970302796170410853
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,7 +312,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d6766c388e897a341a77ef5f937a0f67, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6f8d99f9b17ac9642b770c20db5a0c86, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

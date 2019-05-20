@@ -43,12 +43,8 @@ public class Hp_scipt : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            transform.position = spawnpoint.position;
-        }
 
-        if (Input.GetKeyDown(KeyCode.H) && PotionsRemaining > 0)
+        if (Input.GetButtonDown("Fire2") && PotionsRemaining > 0)
         {
             Hpremaining = maxHP;
             PotionsRemaining = PotionsRemaining - 1;

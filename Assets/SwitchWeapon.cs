@@ -15,15 +15,19 @@ public class SwitchWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+
+        if(Input.GetButtonDown("Swap"))
         {
-            attackHitbox.SetActive(true);
-            rangedWeapon.SetActive(false);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            attackHitbox.SetActive(false);
-            rangedWeapon.SetActive(true);
+            if(attackHitbox.activeSelf == true)
+            {
+                attackHitbox.SetActive(false);
+                rangedWeapon.SetActive(true);
+            }
+            else if (attackHitbox.activeSelf == false)
+            {
+                attackHitbox.SetActive(true);
+                rangedWeapon.SetActive(false);
+            }
         }
     }
 }

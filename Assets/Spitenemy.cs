@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spitenemy : MonoBehaviour
 {
+    public AudioSource spitEffect;
     public GameObject spit;
     public Transform Player;
     public Collider2D Range;
@@ -39,6 +40,7 @@ public class Spitenemy : MonoBehaviour
 
         if (ShotTimer > shootinterval)
         {
+            spitEffect.Play();
             Instantiate(spit, transform.position, Quaternion.identity);
 
             ShotTimer = 0;

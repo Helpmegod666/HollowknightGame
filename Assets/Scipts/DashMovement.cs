@@ -41,15 +41,15 @@ public class DashMovement : MonoBehaviour
 
         if (isDashing == false)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (rb.velocity.x < 0)
             {
                 direction = 1;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (rb.velocity.x > 0)
             {
                 direction = 2;
             }
-            if (Input.GetKeyDown(KeyCode.LeftShift) && dashes >= 1)
+            if (Input.GetButtonDown("Fire3") && dashes >= 1)
             {
                 effect.Play();
                 isDashing = true;

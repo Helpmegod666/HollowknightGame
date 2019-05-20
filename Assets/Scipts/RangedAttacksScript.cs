@@ -31,7 +31,7 @@ public class RangedAttacksScript : MonoBehaviour
             normalAttack.gameObject.SetActive(true);
             gameObject.SetActive(false);
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetAxis("Vertical2") > 0)
         {
             attackHitbox.localPosition = new Vector3(0, 0.7f);
             attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
@@ -42,7 +42,7 @@ public class RangedAttacksScript : MonoBehaviour
             shootUp = true;
             
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetAxis("Vertical2") < 0)
         {
             attackHitbox.localPosition = new Vector3(0, -0.7f);
             attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
@@ -52,7 +52,7 @@ public class RangedAttacksScript : MonoBehaviour
             shootUp = false;
             shootDown = true;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetAxis("Horizontal2") > 0)
         {
             attackHitbox.localPosition = new Vector3(1f, 0.1f);
             attackHitbox.localScale = new Vector3(0.5f, 0.4f, 1);
@@ -63,8 +63,8 @@ public class RangedAttacksScript : MonoBehaviour
             shootUp = false;
             shootRight = true;
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
+        if (Input.GetAxis("Horizontal2") < 0)
+            {
             attackHitbox.localPosition = new Vector3(-1f, 0.1f);
             attackHitbox.localScale = new Vector3(-0.5f, 0.4f, 1);
             attackHitbox.localRotation = new Quaternion(0, 0, 0, 0);
@@ -75,7 +75,7 @@ public class RangedAttacksScript : MonoBehaviour
             shootLeft = true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Z))
+        if(Input.GetButtonDown("Fire1"))
         {
             Shoot();
         }

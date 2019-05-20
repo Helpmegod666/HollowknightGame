@@ -42,8 +42,13 @@ public class EnemyAI : MonoBehaviour
         }
         if (Health.Health <= 0)
         {
-            rbody.velocity = Vector2.zero;
-            transform.Translate(Vector3.down * Time.deltaTime * fallspeed, Space.World);
+            Death();
+            
         }
+    }
+    void Death()
+    {
+        rbody.velocity = Vector2.zero;
+        transform.Translate(Vector3.down * Time.deltaTime * fallspeed, Space.World);
     }
 }

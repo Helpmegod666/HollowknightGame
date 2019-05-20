@@ -96,7 +96,7 @@ public class Bullet : MonoBehaviour
             {
                 knockFromRight = false;
             }
-            if (knockbackCount > 0)
+            if (knockbackCount > 0 && enemy.groundEnemy == true)
             {
                 if (knockFromRight)
                 {
@@ -129,7 +129,7 @@ public class Bullet : MonoBehaviour
             }
             if(enemy.Health == 0)
             {
-                death.Play();
+                //death.Play();
             }
 
             Destroy(gameObject);

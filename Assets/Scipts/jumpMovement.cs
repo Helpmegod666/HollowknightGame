@@ -35,7 +35,7 @@ public class jumpMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(feetpos.position, checkRadius, whatIsGround);
 
-        if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if(isGrounded == true && Input.GetButtonDown("Jump"))
         {
             isJumping = true;
             jumpTimeCounter = jumptime; 
@@ -46,7 +46,7 @@ public class jumpMovement : MonoBehaviour
         }
 
 
-        if (Input.GetKey(KeyCode.Space) && isJumping == true)
+        if (Input.GetButton("Jump") && isJumping == true)
             if (jumpTimeCounter > 0)
             {
                 rbody.velocity = new Vector2(rbody.velocity.x, rbody.velocity.y + jumpForce);

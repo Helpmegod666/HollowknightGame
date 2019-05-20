@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8137964776645560500}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -2.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,9 +121,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5}
-      - {x: -0.4330127, y: -0.25000003}
-      - {x: 0.43301272, y: -0.24999996}
+    - - {x: 0.009715229, y: 1.2480788}
+      - {x: -0.96735466, y: -1.0466557}
+      - {x: 1.0159316, y: -1.0563707}
 --- !u!50 &3816422716891266754
 Rigidbody2D:
   serializedVersion: 4
@@ -144,7 +144,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!82 &2478776683355076864
 AudioSource:
   m_ObjectHideFlags: 0

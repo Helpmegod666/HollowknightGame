@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    public GameObject soundEffect;
     public GameObject playerObject;
     public GameObject explosion;
     public GameObject bomb;
@@ -24,6 +25,7 @@ public class Explosion : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            Instantiate(soundEffect);
             playerHp.Hpremaining -= 2;
             Destroy(bomb, 0.05f);
             Instantiate(explosion, transform.position, transform.rotation);
